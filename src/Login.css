@@ -1,0 +1,227 @@
+/* Login Page Container */
+.login-container {
+    background-color: #261F1C; /* Background color */
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: row; /* Align items in a row (side by side) */
+    color: rgb(226, 226, 226);
+    padding: 20px;
+    gap: 0px; /* Space between the columns */
+    box-sizing: border-box; /* Prevent any overflow issues */
+}
+
+/* Login Image Styling */
+.login-image {
+    width: 420px; /* Default width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure it scales on smaller screens */
+}
+
+/* Glassmorphism Effect Container */
+.glass-container {
+    width: 443px;
+    height: 540px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    backdrop-filter: blur(22.5px); /* For glass effect */
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 0px; /* Slight rounding for a soft effect */
+    max-width: 100%; /* Ensure it doesn't overflow */
+}
+
+/* Login Title */
+.login-title {
+    color: #9D5600;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: -12px;
+}
+
+.login-subtitle {
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: -12px;
+}
+
+.login-word {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Form Container */
+.login-form {
+    width: 100%;
+}
+
+/* Input Group Styling */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.input-group input {
+    height: 40px;
+    padding: 7px;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: #C8C8C8;
+    color: #00000040;
+}
+
+.input-group input::placeholder {
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 10px;
+    color: #00000040;
+}
+
+/* Login Button */
+.login-button {
+    width: calc(100% - 40px);
+    height: 40px;
+    margin: 10px 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: #9D5600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #774300;
+}
+
+/* Sign-Up Link */
+.signup-container {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.signup-link {
+    color: #9D5600;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.signup-link:hover {
+    color: #774300;
+}
+
+/* Social Buttons */
+.social-buttons {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-button {
+    width: calc(100% - 40px);
+    height: 40px;
+    margin: 0 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.google-button {
+    background-color: #db4437;
+    color: white;
+}
+
+.google-button:hover {
+    opacity: 0.8;
+    background-color: #e8675b;
+}
+
+.facebook-button {
+    background-color: #3b5998;
+    color: white;
+}
+.facebook-button:hover {
+    opacity: 0.8;
+    background-color: #6588d4;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    /* Adjust layout for smaller screens */
+    .login-container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center;
+        height: auto; /* Allow it to adjust to content */
+    }
+
+    .glass-container {
+        width: 90%; /* Make the glass container width responsive */
+        max-width: 400px; /* Limit width on very small screens */
+        height: auto; /* Let the container adjust its height based on content */
+        padding: 20px;
+    }
+
+    .login-image {
+        width: 80%; /* Make the image more responsive */
+        max-width: 350px; /* Ensure the image doesn't overflow */
+        margin-bottom: 20px; /* Provide space between image and form */
+    }
+
+    .login-title {
+        font-size: 20px; /* Slightly reduce title font size */
+    }
+
+    .input-group input {
+        font-size: 14px; /* Reduce input font size for better fit */
+    }
+
+    .login-button {
+        font-size: 14px; /* Smaller button text */
+    }
+
+    .signup-link {
+        font-size: 14px; /* Adjust font size for small screens */
+    }
+
+    .social-button {
+        font-size: 14px; /* Reduce font size of social buttons */
+    }
+}
+
+/* Additional mobile responsiveness adjustments */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 10px; /* Reduce padding on very small screens */
+    }
+
+    .login-image {
+        width: 70%; /* Further scale down the image */
+    }
+
+    .glass-container {
+        width: 100%; /* Full width for glass container on small screens */
+    }
+
+    .input-group input {
+        font-size: 13px; /* Even smaller font for inputs */
+    }
+
+    .login-button {
+        font-size: 13px; /* Reduce button text size further */
+    }
+}

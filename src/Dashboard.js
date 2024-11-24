@@ -2,6 +2,7 @@
 import React from "react";
 import './Dashboard.css'; 
 import logo from  "./images/Lamontana_logo-removebg-preview.png";
+import { Link } from "react-router-dom";
 function Dashboard() {
   return (
     <div className="dashboard-container">
@@ -14,8 +15,12 @@ function Dashboard() {
           <li><a href="#order-reservation">Order & Reservation</a></li>
           <li><a href="#review">Review</a></li>
           <li><a href="#loyalty-program">Loyalty Program</a></li>
+          <Link to ="/Login">
           <button className="loginbutton">Log In</button>
+          </Link>
+          <Link to ="/signup">
           <button className="signupbutton">Sign Up</button>
+          </Link>
         </ul>
       </nav>
 

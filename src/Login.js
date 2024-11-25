@@ -31,7 +31,6 @@ function Login() {
         <div className="signup-container">
           <p>Don't have an account? <span onClick={handlesighnup} className="signup-link">Sign up</span></p>
         </div>
-
         {/* Continue with Google/Facebook Buttons */}
         <div className="social-buttons">
           <button className="social-button google-button">Continue with Google</button>

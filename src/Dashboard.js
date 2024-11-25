@@ -12,7 +12,9 @@ function Dashboard() {
           <li><a href="#home">Home</a></li>
           <li><a href="#about-us">About Us</a></li>
           <li><a href="#menu">Menu</a></li>
-          <li><a href="#order-reservation">Order & Reservation</a></li>
+          <Link to="/AdminDashboard" className="navbar-link">
+              Admin Dashboard
+            </Link>
           <li><a href="#review">Review</a></li>
           <li><a href="#loyalty-program">Loyalty Program</a></li>
           <Link to ="/Login">

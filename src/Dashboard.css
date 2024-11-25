@@ -1,4 +1,4 @@
-/* src/Dashboard.css */
+
 .dashboard-container {
     background-image: url('./images/backgroundimage.jpg');
     background-size: cover;
@@ -18,12 +18,13 @@
   }
   .dashboard-header h1 {
     font-size: 4rem;
-    margin-bottom: -30px;
+    margin-bottom: -20px;
+    font-family: 'Times New Roman', Times, serif;
   }
-  
-  .dashboard-header h2 {
-    font-size: 2rem;
-    margin-bottom: 2px;
+  .dashboard-header h3 {
+    font-size: 1rem;
+    margin-bottom: 1px;
+    font-family: 'Times New Roman', Times, serif;
   }
   .dashboard-header p {
     font-size: 1.2rem;

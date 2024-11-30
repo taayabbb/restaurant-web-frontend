@@ -19,7 +19,6 @@ const Dashboard = () => {
         backgroundColor: "rgba(161, 62, 20, 0.6)",  // Applying the color you mentioned
         borderColor: "rgba(161, 62, 20, 1)",
         borderWidth: 1,
-        
       },
     ],
   };

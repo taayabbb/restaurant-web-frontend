@@ -7,6 +7,9 @@ function Login() {
     const handlesighnup=()=>{
         navigate('/signup');
     }
+    const handleLogin=()=>{
+      navigate('/AdminHome');
+    }
   return (
     <div className="login-container">
          <img src={logo} alt="Login Logo" className="login-image" />
@@ -25,7 +28,7 @@ function Login() {
             <input type="password" id="password" name="password" placeholder="Enter your password" />
           </div>
            {/* Login Button */}
-           <button type="button" className="login-button">Login</button>
+           <button type="button" className="login-button" onClick={handleLogin} >Login</button>
         </form>
         {/* Sign-Up Link */}
         <div className="signup-container">

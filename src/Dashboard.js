@@ -1,4 +1,7 @@
 // src/Dashboard.js
+//this dashboard is the home page like when the project opens this screen would appear
+//and then when login oor sign up if its admin then the adminHome.js page would be navigated 
+//else the customer page would be navigated 
 import React from "react";
 import './Dashboard.css'; 
 import logo from  "./images/Lamontana_logo-removebg-preview.png";
@@ -12,11 +15,9 @@ function Dashboard() {
           <li><a href="#home">Home</a></li>
           <li><a href="#about-us">About Us</a></li>
           <li><a href="#menu">Menu</a></li>
-          <Link to="/AdminDashboard" className="navbar-link">
-              Admin Dashboard
-            </Link>
           <li><a href="#review">Review</a></li>
           <li><a href="#loyalty-program">Loyalty Program</a></li>
+          <li><a href="#Order & Reservation">Order & Reservation</a></li>
           <Link to ="/Login">
           <button className="loginbutton">Log In</button>
           </Link>
@@ -25,7 +26,6 @@ function Dashboard() {
           </Link>
         </ul>
       </nav>
-
       {/* Main Content */}
       <header className="dashboard-header">
         {/* Logo */}

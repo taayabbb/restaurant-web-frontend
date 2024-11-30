@@ -1,0 +1,121 @@
+.body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.dishDetailsContainer {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+  backdrop-filter: blur(10px); /* Add blur effect */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px; /* Optional: rounded corners for the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: subtle shadow */
+}
+
+.backButton {
+  background-color: #a13e14;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.backButton:hover {
+  background-color: #ff7f00;
+}
+
+.dishDetailsCard {
+  background-color: rgba(128, 64, 0, 0.7); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 80%;
+  font-family: 'Times New Roman', Times, serif;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dishImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.dishName {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.dishCategory {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.dishDescription {
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.buttonsContainer{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  text-align: center;
+  justify-content: center;
+  text-align: center;
+
+}
+.orderNowButton {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.orderNowButton:hover {
+  background-color: #ff7f00;
+}
+
+.crudButtonsButton {
+  background-color: #a13e14;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  gap:5px;
+  display:flex;
+  font-size: 16px;
+  padding-bottom: 5px;;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.crudButtonsButton:hover {
+  background-color: #ff7f00;
+}
+
+.noDishSelected {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.noDishSelected h2 {
+  margin-bottom: 20px;
+}

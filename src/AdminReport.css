@@ -1,0 +1,69 @@
+.admin-report-container {
+    display: flex;
+    height: 100vh;
+    font-family: 'Times New Roman', Times, serif;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('./images/realbackground.jpg');
+  }
+ /* Sidebar with Glassmorphism */
+.sidebar {
+    width: 20%;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Apply blur to the background */
+    color: white;
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px; /* Optional: rounded corners for a softer look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+  }
+  .sidebar button {
+    background: #9D5600;
+    color: white;
+    border: none;
+    margin: 10px 0;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+    text-align: centre;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar button:hover {
+    background: #926731;
+  }
+  
+  .content {
+    width: 80%;
+    padding: 20px;
+  }
+  
+  .content h2 {
+    margin-bottom: 20px;
+    color:#bdc3c7;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .content ul {
+    list-style-type: none;
+    padding: 0;
+    color:#bdc3c7;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .content ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #bdc3c7;
+    color:#bdc3c7;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .content p {
+    font-size: 18px;
+    color:#bdc3c7;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  

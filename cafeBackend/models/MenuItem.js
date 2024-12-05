@@ -5,9 +5,16 @@ const menuItemSchema = new mongoose.Schema({
   category: { type: String, required: true },
   price: { type: Number, required: true },
   description: { type: String },
-  dietaryOptions: [{ type: String }],
+  dietaryOptions: [{ type: String }], // e.g., vegan, gluten-free
   isSpecial: { type: Boolean, default: false },
   status: { type: String, enum: ['available', 'out of stock'], default: 'available' },
+  ingredients: [
+    {
+      name: { type: String, required: true },
+      quantity: { type: Number, required: true },
+      unit: { type: String, required: true } // e.g., grams, ml, pieces
+    }
+  ],
   createdAt: { type: Date, default: Date.now }
 });
 

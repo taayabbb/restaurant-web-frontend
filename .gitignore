@@ -4,6 +4,7 @@
 /.pnp
 .pnp.js
 cafeBackend/node_modules
+cafeBackend/.env
 cafeFrontend/node_modules
 
 # testing

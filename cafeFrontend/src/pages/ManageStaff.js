@@ -1,28 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/ManageMenu.module.css'; // Import CSS Module
 //importing the images because they were in the src folder imorting them as module
 import { useNavigate } from 'react-router-dom';
-import waiter1 from '../images/waiter1.jpg';
-import waiter2 from '../images/waiter2.jpeg';
-import cheif1 from  '../images/chief1.jpg';
-import chief2 from '../images/chief2.jpg';
+
 function ManageStaff() {
   const navigate = useNavigate();
-  const [menu] = useState([
-    { id: 1, name: "Chef Pasha", image: cheif1, role: "Chef" },
-    { id: 2, name: "Chef Tayyab", image: chief2, role: "Chef" },
-    { id: 3, name: "Waiter azhar", image: waiter1, role: "Waiter" },
-    { id: 4, name: "Waiter Areeba", image: waiter2, role: "Waiter" },
-  ]);
+
+  const [staffMembers, setStaffMembers] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredMenu = menu.filter((item) =>
+  const filteredStaffMembers = staffMembers.filter((item) =>
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleViewDetails = (dish) => {
-    navigate('/StaffDetails', { state: { dish } });
+  const handleViewDetails = (staff) => {
+    navigate('/StaffDetails', { state: { staff } });
   };
+  
+  const handleSearch = () => {
+    setStaffMembers(filteredStaffMembers)
+  }
+
+  useEffect(() => {
+    const fetchStaffMembers = async () => {
+      const response = await fetch('http://localhost:5000/api/staff/')
+      const json = await response.json();
+      if(response.ok){
+        setStaffMembers(json.staffMembers)
+        console.log(json)
+      }
+    }
+    fetchStaffMembers()
+  }, [])
 
   return (
     <div className={styles.menuManagementContainer}>
@@ -35,23 +44,24 @@ function ManageStaff() {
           onChange={(e) => setSearchQuery(e.target.value)}
           className={styles.menuSearch}
         />
-        <button className={styles.searchButton}>Search</button>
+        <button className={styles.searchButton} onClick={handleSearch}>Search</button>
       </div>
       <h2 className={styles.menuSubtitle}>Our Remarkable Waiters and Staffs</h2>
       <div className={styles.menuGrid}>
-        {filteredMenu.map((item) => (
-          <div className={styles.menuCard} key={item.id}>
-            <img src={item.image} alt={item.name} className={styles.menuImage} />
-            <h3 className={styles.menuDishName}>{item.name}</h3>
+        {staffMembers && staffMembers.map((staff) => (
+          <div className={styles.menuCard} key={staff._id}>
+            <img src={staff.imgPath}  className={styles.menuImage} />
+            <h3 className={styles.menuDishName}>{staff.name}</h3>
             <button
               className={styles.menuViewDetails}
-              onClick={() => handleViewDetails(item)}
+              onClick={() => handleViewDetails(staff)}
             >
               View Details
             </button>
           </div>
         ))}
       </div>
+      <button className={styles.addButton} >Add a new staff member</button>
     </div>
   );
 }

@@ -11,12 +11,6 @@ import steak from '../images/steak.jpg';
 //components
 
 function ManageMenu() {
-  // const [menu] = useState([
-    //   { id: 1, name: 'Grilled Shrimp', category: 'Seafood', image: shrimpimage },
-    //   { id: 2, name: 'Spicy Chicken Curry', category: 'Chicken', image:curryimage },
-    //   { id: 3, name: 'Vegetarian Pizza', category: 'Vegetarian', image:pizzaimage },
-    //   { id: 4, name: 'Steak', category: 'Beef', image: steak},
-    // ]);
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [menuItems, setMenuItems] = useState([]);
@@ -41,7 +35,6 @@ function ManageMenu() {
 
       if(response.ok){
         setMenuItems(json.menuItems)
-        // alert(json.message);
       }
     }
     fetchMenuItems()

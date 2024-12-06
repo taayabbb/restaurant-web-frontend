@@ -7,7 +7,7 @@ function DishDetails() {
   const navigate = useNavigate();
   
   // Retrieve staff details from location state
-  const staff = location.state?.dish;
+  const staff = location.state?.staff;
 
   if (!staff) {
     return (
@@ -26,20 +26,12 @@ function DishDetails() {
         Back to Staff Management
       </button>
       <div className={styles.dishDetailsCard}>
-        <img src={staff.image} alt={staff.name} className={styles.dishImage} />
+        <img src={staff.imgPath} alt={staff.name} className={styles.dishImage} />
         <h1 className={styles.dishName}>{staff.name}</h1>
         <p className={styles.staffRole}>Role: {staff.role}</p>
-        <p className={styles.staffCNIC}>CNIC: 12345-6789012-3</p>
-        <p className={styles.staffExperience}>Years of Experience: 5</p>
-        <p className={styles.staffSalary}>Gross Salary: $50,000</p>
-        <p className={styles.staffPromotionLevel}>Promotion Level: Level 3</p>
-        <p className={styles.staffDescription}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-          condimentum orci at felis ultrices, vel fringilla nulla lacinia.
-          Suspendisse potenti.
-        </p>
+        <p className={styles.staffCNIC}>Contact no.: {staff.contactNumber}</p>
+        <p className={styles.staffExperience}>Email: {staff.email}</p>
         <div className={styles.buttonsContainer}>
-          <button className={styles.crudButtonsButton}>Add a New Staff Member</button>
           <button className={styles.crudButtonsButton}>Update Info about Staff Member</button>
           <button className={styles.crudButtonsButton}>Remove Staff Member</button>
         </div>

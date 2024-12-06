@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../images/realbackground.jpg');
+    color: rgb(232, 232, 232);
+}
+.dashboard {
+    padding: 20px;
+    text-align: center;
+}
+.dashboard-header {
+    margin-bottom: 30px;
+}
+.dashboard-header h1 {
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+.dashboard-header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Times New Roman', Times, serif;
+}
+.metrics {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allows wrapping of metric cards on smaller screens */
+}
+.metric-card {
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency for glass effect */
+    padding: 20px;
+    border-radius: 10px;
+    width: 320px;
+    height: 200px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.26); /* Light border to simulate glass edge */
+    backdrop-filter: blur(20px); /* Apply blur for glass effect */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
+    margin: 10px;
+}
+
+.metric-card h2 {
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: -10px;
+}
+
+.metric-card p {
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #a13e14;
+}
+.metric-card .description {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 0px;
+}
+.charts {
+    display: flex;
+    justify-content: space-between; /* Align charts side by side in full-screen mode */
+    gap: 10px;
+    flex-wrap: wrap; /* Allows wrapping of charts on smaller screens */
+}
+.chart-container {
+    width: 29%; /* Set width of chart containers to be side by side */
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency for glass effect */
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.26); /* Light border to simulate glass edge */
+    backdrop-filter: blur(20px); /* Apply blur for glass effect */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
+}
+
+.chart-container .chart {
+    color: #a13e14; /* Set the color to the specified combination */
+}
+
+/* Responsive Adjustments for Medium Screens (1024px and below) */
+@media (max-width: 1024px) {
+    .dashboard-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .dashboard-header p {
+        font-size: 1rem;
+    }
+
+    .metric-card {
+        width: 45%; /* Adjust width for medium-sized screens */
+    }
+
+    .charts .chart-container {
+        width: 48%; /* Adjust width for charts on medium screens */
+    }
+}
+
+/* Responsive Adjustments for Smaller Screens (768px and below) */
+@media (max-width: 768px) {
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-header p {
+        font-size: 0.9rem;
+    }
+
+    .metrics {
+        flex-direction: column; /* Stack metric cards vertically */
+        align-items: center;
+    }
+
+    .metric-card {
+        width: 80%; /* Adjust width for smaller screens */
+    }
+
+    .charts {
+        flex-direction: column; /* Stack chart containers vertically */
+        align-items: center;
+    }
+
+    .chart-container {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+}
+
+/* Responsive Adjustments for Very Small Screens (480px and below) */
+@media (max-width: 480px) {
+    .dashboard-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .dashboard-header p {
+        font-size: 0.8rem;
+    }
+
+    .metric-card {
+        width: 100%; /* Full width for very small screens */
+    }
+
+    .charts {
+        flex-direction: column; /* Stack charts vertically */
+        align-items: center;
+    }
+
+    .chart-container {
+        width: 100%; /* Full width for very small screens */
+    }
+}

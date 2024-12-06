@@ -1,11 +1,22 @@
+const MenuItem = require('../models/MenuItem');
 const Menu = require('../models/MenuItem');
+
+
+const getMenuItems = async (req, res) => {
+  try{
+    const menuItems = await MenuItem.find({});
+    res.status(201).json({message:'Menu items retrieved successfully', menuItems});
+  } catch (err) {
+    res.status(500).json({message:'Error getting menu items', err})
+  }
+}
 
 // Add Menu Item
 const addMenuItem = async (req, res) => {
-  const { name, category, price, description, isSpecial } = req.body;
+  const { name, category, price, description, isSpecial, imgPath } = req.body;
 
   try {
-    const menuItem = new Menu({ name, category, price, description, isSpecial });
+    const menuItem = new Menu({ name, category, price, description, isSpecial, imgPath });
     await menuItem.save();
     res.status(201).json({ message: 'Menu item added successfully', menuItem });
   } catch (error) {
@@ -38,4 +49,4 @@ const deleteMenuItem = async (req, res) => {
   }
 };
 
-module.exports = { addMenuItem, updateMenuItem, deleteMenuItem };
+module.exports = { getMenuItems, addMenuItem, updateMenuItem, deleteMenuItem };

@@ -34,9 +34,20 @@ function DishDetails() {
           {dish.description}
         </p>
         <div className={styles.buttonsContainer}>
-        <button className={styles.crudButtonsButton}>Update Dish</button>
+        <button
+               className={styles.crudButtonsButton}
+                onClick={() => navigate("/updateMenuForm")}
+          > 
+          Update Dish
+        </button>
         <button className={styles.crudButtonsButton}>Delete Dish</button>
         <button className={styles.crudButtonsButton}>Mark as out of stcok</button>
+        <button
+            className={styles.addDishButton}
+            onClick={() => navigate("/AddMenuForm")}
+          >
+            Add Dish
+          </button>
         </div>
       </div>
     </div>

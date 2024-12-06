@@ -1,0 +1,112 @@
+
+.adddish-page  {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/realbackground.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;  /* Horizontally center */
+    align-items: center;  /* Vertically center */
+  }
+  
+  /* New form container styles */
+   .adddish-form-container {
+    width: 100%;  /* Percentage for width (fix it to a valid number) */
+    max-width: 500px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(11.1px);
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+  }
+  .heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #f8f8f8;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    
+  }
+  
+  .label {
+    font-size: 1rem;
+    color: #eaeaea;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .input,
+  .select,
+  .textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #000000;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .textarea {
+    resize: none;
+    height: 100px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .fileInput {
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .checkboxGroup {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #7a5c46;
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #5c3d2f;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  @media (max-width: 768px) {
+    .formContainer {
+      width: 90%;
+    }
+  
+    .heading {
+      font-size: 1.5rem;
+    }
+  
+    .input,
+    .select,
+    .textarea,
+    .button {
+      font-size: 0.9rem;
+    }
+  }
+  

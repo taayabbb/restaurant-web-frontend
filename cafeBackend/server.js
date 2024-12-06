@@ -19,8 +19,12 @@ connectDB();
 
 // Initialize Express app
 const app = express();
+app.use(cors({
+    origin: "http://localhost:3000", //Front-end Origin
+    credentials: true, // Allow credentials to be sent
+}));
 app.use(express.json());
-app.use(cors());
+
 
 // API Routes
 app.use('/api/auth', authRoutes);

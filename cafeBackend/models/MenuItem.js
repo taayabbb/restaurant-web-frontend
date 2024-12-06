@@ -8,6 +8,7 @@ const menuItemSchema = new mongoose.Schema({
   dietaryOptions: [{ type: String }], // e.g., vegan, gluten-free
   isSpecial: { type: Boolean, default: false },
   status: { type: String, enum: ['available', 'out of stock'], default: 'available' },
+  imgPath: {type: String},
   ingredients: [
     {
       name: { type: String, required: true },

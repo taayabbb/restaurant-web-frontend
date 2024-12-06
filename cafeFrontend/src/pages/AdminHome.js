@@ -1,8 +1,8 @@
 // src/AdminHome.js
 // This is the admin home page. It includes navigation for admin-specific tasks.
 import React from "react";
-import './AdminHome.css'; 
-import logo from "./images/Lamontana_logo-removebg-preview.png";
+import '../styles/AdminHome.css'; 
+import logo from "../images/Lamontana_logo-removebg-preview.png";
 import { Link } from "react-router-dom";
 function AdminHome() {
   return (

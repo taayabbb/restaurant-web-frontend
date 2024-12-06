@@ -3,8 +3,8 @@
 //and then when login oor sign up if its admin then the adminHome.js page would be navigated 
 //else the customer page would be navigated 
 import React from "react";
-import './Dashboard.css'; 
-import logo from  "./images/Lamontana_logo-removebg-preview.png";
+import '../styles/Dashboard.css'; 
+import logo from  "../images/Lamontana_logo-removebg-preview.png";
 import { Link } from "react-router-dom";
 function Dashboard() {
   return (

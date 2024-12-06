@@ -1,6 +1,6 @@
 import React from 'react';
-import './Login.css'; // Optional: Add CSS for your signup page
-import logo from "./images/loginreal.jpg";
+import '../styles/Login.css'; // Optional: Add CSS for your signup page
+import logo from "../images/loginreal.jpg";
 import { useNavigate } from 'react-router-dom';
 
 function SignUp() {

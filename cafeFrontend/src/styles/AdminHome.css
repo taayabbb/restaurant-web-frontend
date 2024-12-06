@@ -1,7 +1,7 @@
 /* src/AdminHome.css */
 
 .admin-home-container {
-    background-image: url('./images/realbackground.jpg'); /* Change background image for admin panel */
+    background-image: url('../images/realbackground.jpg'); /* Change background image for admin panel */
     background-size: cover;
     background-position: center;
     height: 100vh;

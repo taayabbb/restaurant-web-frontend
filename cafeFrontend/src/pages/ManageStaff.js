@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import styles from './ManageMenu.module.css'; // Import CSS Module
+import styles from '../styles/ManageMenu.module.css'; // Import CSS Module
 //importing the images because they were in the src folder imorting them as module
 import { useNavigate } from 'react-router-dom';
-import shrimpimage from './images/shrimp.jpg';
-import curryimage from './images/curry.jpg';
-import pizzaimage from './images/pizza.jpg';
-import steak from './images/steak.jpg';
-function ManageMenu() {
+import waiter1 from '../images/waiter1.jpg';
+import waiter2 from '../images/waiter2.jpeg';
+import cheif1 from  '../images/chief1.jpg';
+import chief2 from '../images/chief2.jpg';
+function ManageStaff() {
   const navigate = useNavigate();
   const [menu] = useState([
-    { id: 1, name: 'Grilled Shrimp', category: 'Seafood', image: shrimpimage },
-    { id: 2, name: 'Spicy Chicken Curry', category: 'Chicken', image:curryimage },
-    { id: 3, name: 'Vegetarian Pizza', category: 'Vegetarian', image:pizzaimage },
-    { id: 4, name: 'Steak', category: 'Beef', image: steak},
+    { id: 1, name: "Chef Pasha", image: cheif1, role: "Chef" },
+    { id: 2, name: "Chef Tayyab", image: chief2, role: "Chef" },
+    { id: 3, name: "Waiter azhar", image: waiter1, role: "Waiter" },
+    { id: 4, name: "Waiter Areeba", image: waiter2, role: "Waiter" },
   ]);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -21,12 +21,12 @@ function ManageMenu() {
   );
 
   const handleViewDetails = (dish) => {
-    navigate('/DishDetails', { state: { dish } });
+    navigate('/StaffDetails', { state: { dish } });
   };
 
   return (
     <div className={styles.menuManagementContainer}>
-      <h1 className={styles.menuTitle}>Management Of Menu</h1>
+      <h1 className={styles.menuTitle}>Management Of Staff</h1>
       <div className={styles.menuControls}>
         <input
           type="text"
@@ -37,7 +37,7 @@ function ManageMenu() {
         />
         <button className={styles.searchButton}>Search</button>
       </div>
-      <h2 className={styles.menuSubtitle}>Our Famous Dishes</h2>
+      <h2 className={styles.menuSubtitle}>Our Remarkable Waiters and Staffs</h2>
       <div className={styles.menuGrid}>
         {filteredMenu.map((item) => (
           <div className={styles.menuCard} key={item.id}>
@@ -56,4 +56,4 @@ function ManageMenu() {
   );
 }
 
-export default ManageMenu;
+export default ManageStaff;

@@ -5,7 +5,7 @@
 //4-reviews of suctomers
 //thats all 
 import React, { useState } from 'react';
-import './AdminReport.css';
+import '../styles/AdminReport.css';
 
 const AdminReport = () => {
   const [data] = useState({

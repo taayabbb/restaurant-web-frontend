@@ -1,6 +1,6 @@
 /* Dashboard Styles */
 .dashboard-container {
-  background-image: url('./images/backgroundimage.jpg');
+  background-image: url('../images/backgroundimage.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;

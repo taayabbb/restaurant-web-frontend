@@ -1,17 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Dashboard from './Dashboard';
-import './Dashboard.css'; // Make sure this path is correct
-import Login from './Login'; // Import the Login component
-import SignUp from './sighnup';//importing the sighup 
-import AdminDashboard from './AdminDashboard';//importing the admin dashboard
-import AdminHome from './AdminHome';
-import Managemenu from './ManageMenu';
-import DishDetails from './DishDetails';
-import ManageStaff from './ManageStaff';
-import StaffDetails from './StaffDetails';
-import AdminReport from './AdminReport';
+import './styles/App.css';
+import Dashboard from './pages/Dashboard';
+import './styles/Dashboard.css'; // Make sure this path is correct
+import Login from './pages/Login'; // Import the Login component
+import SignUp from './pages/sighnup';//importing the sighup 
+import AdminDashboard from './pages/AdminDashboard';//importing the admin dashboard
+import AdminHome from './pages/AdminHome';
+import Managemenu from './pages/ManageMenu';
+import DishDetails from './pages/DishDetails';
+import ManageStaff from './pages/ManageStaff';
+import StaffDetails from './pages/StaffDetails';
+import AdminReport from './pages/AdminReport';
 function App() {
   return (
     <Router>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import styles from './DishDetails.module.css';
+import styles from '../styles/DishDetails.module.css';
 
 function DishDetails() {
   const location = useLocation();

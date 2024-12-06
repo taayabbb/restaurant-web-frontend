@@ -1,5 +1,5 @@
 import React from "react";
-import "./AdminDashboard.css";
+import "../styles/AdminDashboard.css";
 import { Bar, Line, Pie } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import { color } from "chart.js/helpers";

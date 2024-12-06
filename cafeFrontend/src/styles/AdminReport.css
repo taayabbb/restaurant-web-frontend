@@ -4,7 +4,7 @@
     font-family: 'Times New Roman', Times, serif;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url('./images/realbackground.jpg');
+    background-image: url('../images/realbackground.jpg');
   }
  /* Sidebar with Glassmorphism */
 .sidebar {

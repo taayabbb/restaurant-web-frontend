@@ -24,7 +24,6 @@ function AdminHome() {
           </Link>
         </ul>
       </nav>
-
       {/* Main Content */}
       <header className="admin-header">
         {/* Logo */}

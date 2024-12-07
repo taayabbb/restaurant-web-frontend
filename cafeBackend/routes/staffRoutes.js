@@ -1,11 +1,12 @@
 const express = require('express');
-const { addStaff, updateStaff, deleteStaff } = require('../controllers/staffController');
+const { addStaff, updateStaff, deleteStaff, getAllStaffMembers } = require('../controllers/staffController');
 const { protect } = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-router.post('/add', protect, addStaff);
-router.put('/update/:id', protect, updateStaff);
-router.delete('/delete/:id', protect, deleteStaff);
+router.get('/', getAllStaffMembers)
+router.post('/add',  addStaff);
+router.put('/update/:id', updateStaff);
+router.delete('/delete/:id', deleteStaff);
 
 module.exports = router;

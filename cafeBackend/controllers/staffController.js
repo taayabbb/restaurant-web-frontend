@@ -1,5 +1,16 @@
 const Staff = require('../models/staff');
 
+//Get all staff members
+
+const getAllStaffMembers = async (req,res) => {
+  try{
+    const staffMembers = await Staff.find({});
+    res.status(201).json({message:"Staff retrieved successfully", staffMembers})
+  } catch (err){
+    res.status(500).json({message:'Error retrieving staff', err})
+  }
+}
+
 // Add Staff
 const addStaff = async (req, res) => {
   const { name, role, email, password } = req.body;
@@ -39,4 +50,8 @@ const deleteStaff = async (req, res) => {
   }
 };
 
-module.exports = { addStaff, updateStaff, deleteStaff };
+module.exports = { 
+  addStaff,
+  updateStaff, 
+  deleteStaff,
+  getAllStaffMembers };

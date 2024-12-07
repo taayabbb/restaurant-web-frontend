@@ -7,7 +7,7 @@ const staffSchema = new mongoose.Schema({
   password: { type: String, required: true },
   contactNumber: { type: String },
   status: { type: String, enum: ['active', 'inactive'], default: 'active' },
-  assignedTables: [{ type: Number }], // For waiters
+  imgPath: {type: String},
   createdAt: { type: Date, default: Date.now }
 });
 

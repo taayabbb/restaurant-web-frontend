@@ -60,9 +60,22 @@ const getOccupancy = async (req, res) => {
   }
 };
 
+// Count reservations
+const countReservations = async (req, res) => {
+  try {
+    // Count reservations
+    const todayReservationsCount = await Reservation.countDocuments({});
+
+    res.json({ todayReservations: todayReservationsCount });
+  } catch (error) {
+    res.status(500).json({ message: 'Error counting today\'s reservations', error });
+  }
+};
+
 module.exports = {
   getReservations,
   confirmReservation,
   assignTableToReservation,
-  getOccupancy
+  getOccupancy,
+  countReservations
 };

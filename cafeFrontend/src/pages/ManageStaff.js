@@ -69,12 +69,12 @@ function ManageStaff() {
           >
             Add Staff Member
           </button>
-          <button
+          {/* <button
             className={styles.addButton}
             onClick={() => navigate("/UpdateStaffForm")}
           >
           Update Staff member
-          </button>
+          </button> */}
     </div>
   );
 }

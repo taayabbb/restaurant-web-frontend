@@ -6,7 +6,8 @@ const {
     getMenuItemsBySales, 
     calculateTotalProfits,
     calculateTotalRevenues,
-    getOrderHistory
+    getOrderHistory,
+    countOrders
     } = require('../controllers/orderController');
 const { protect } = require('../middleware/authMiddleware');
 
@@ -21,5 +22,6 @@ router.get('/menu-items-by-sales', getMenuItemsBySales);
 router.get('/total-profits', calculateTotalProfits);
 router.get('/total-revenues', calculateTotalRevenues);
 router.get('/orders-history',getOrderHistory)
+router.get('/order-count',countOrders)
 
 module.exports = router;

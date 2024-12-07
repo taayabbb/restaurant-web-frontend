@@ -2,31 +2,38 @@ import React, { useState } from "react";
 import styles from "../styles/addMenuForm.module.css"; // Import CSS module
 
 const AddMenuForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    category: "",
-    price: "",
-    description: "",
-    isSpecial: false,
-    isInStock: false,
-    picture: null,
-  });
+  const [name, setName] = useState('')
+  const [price, setPrice] = useState('')
+  const [category, setCategory] = useState('')
+  const [description, setDescription] = useState('')
+  const [imgPath, setImgPath] = useState('')
+  const [isSpecial,setIsSpecial] = useState(false);
+  const [error, setError] = useState(null)
 
-  const handleChange = (e) => {
-    const { name, value, type, checked, files } = e.target;
-    if (type === "checkbox") {
-      setFormData({ ...formData, [name]: checked });
-    } else if (type === "file") {
-      setFormData({ ...formData, [name]: files[0] });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
     // Add the logic to submit the form data
+    const menuItem = {name , price , category, description, imgPath, isSpecial};
+    const response = await fetch('http://localhost:5000/api/menu/add',{
+      method: 'POST',
+      body: JSON.stringify(menuItem),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const json = await response.json()
+    if(!response.ok){
+      setError(json.error)
+    }
+    if(response.ok){
+      setError(null)
+      setPrice('')
+      setCategory('')
+      setDescription('')
+      setName('')
+      setImgPath('')
+      setIsSpecial('')
+    }
   };
 
   return (
@@ -34,39 +41,53 @@ const AddMenuForm = () => {
       <div className={styles['adddish-form-container']}> {/* Correct class name application */}
         <h2 className={styles.heading}>Adding Dish</h2>
         <form className={styles.form} onSubmit={handleSubmit}>
-          <label htmlFor="name" className={styles.label}>
+          <label className={styles.label}>
             Add Name:
           </label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             className={styles.input}
             required
           />
-          <label htmlFor="price" className={styles.label}>
+          <label className={styles.label}>
             Add Price:
           </label>
           <input
             type="number"
-            id="price"
-            name="price"
-            value={formData.price}
-            onChange={handleChange}
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            className={styles.input}
+            required
+          />
+          <label className={styles.label}>
+            Add Category:
+          </label>
+          <input
+            type="text"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className={styles.input}
+            required
+          />
+          <label className={styles.label}>
+            Add Image URL:
+          </label>
+          <input
+            type="text"
+            value={imgPath}
+            onChange={(e) => setImgPath(e.target.value)}
             className={styles.input}
             required
           />
 
-          <label htmlFor="description" className={styles.label}>
+          <label className={styles.label}>
             Description:
           </label>
           <textarea
-            id="description"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             className={styles.textarea}
             required
           ></textarea>
@@ -76,13 +97,13 @@ const AddMenuForm = () => {
               <input
                 type="checkbox"
                 name="isSpecial"
-                checked={formData.isSpecial}
-                onChange={handleChange}
+                checked={isSpecial}
+                onChange={(e) => {if(isSpecial === true)setIsSpecial(false); else setIsSpecial(true)}}
               />
               Is the Dish Special?
             </label>
 
-            <label>
+            {/* <label>
               <input
                 type="checkbox"
                 name="isInStock"
@@ -90,10 +111,10 @@ const AddMenuForm = () => {
                 onChange={handleChange}
               />
               Is in stock?
-            </label>
+            </label> */}
           </div>
 
-          <label htmlFor="picture" className={styles.label}>
+          {/* <label htmlFor="picture" className={styles.label}>
             Upload Picture:
           </label>
           <input
@@ -103,11 +124,12 @@ const AddMenuForm = () => {
             accept="image/*"
             className={styles.fileInput}
             onChange={handleChange}
-          />
+          /> */}
 
           <button type="submit" className={styles.button}>
             Add Dish
           </button>
+          {error && <div className={styles.label} >{error}</div>}
         </form>
       </div>
     </div>

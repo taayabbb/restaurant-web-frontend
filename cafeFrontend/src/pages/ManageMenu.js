@@ -3,10 +3,6 @@ import styles from '../styles/ManageMenu.module.css'; // Import CSS Module
 
 //importing the images because they were in the src folder imorting them as module
 import { useNavigate } from 'react-router-dom';
-import shrimpimage from '../images/shrimp.jpg';
-import curryimage from '../images/curry.jpg';
-import pizzaimage from '../images/pizza.jpg';
-import steak from '../images/steak.jpg';
 
 //components
 
@@ -74,12 +70,12 @@ function ManageMenu() {
           >
             Add Dish
           </button>
-          <button
+          {/* <button
             className={styles.addButton}
             onClick={() => navigate("/updateMenuForm")}
           >
             Update Dish
-          </button>
+          </button> */}
     </div>
   );
 

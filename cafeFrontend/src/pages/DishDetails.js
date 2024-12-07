@@ -9,6 +9,17 @@ function DishDetails() {
   // Retrieve dish details from location state
   const dish = location.state?.dish;
 
+  const handleDelete = async () => {
+    const response = await fetch('http://localhost:5000/api/menu/delete/' + dish._id, {
+      method: 'DELETE'
+    })
+    const json = await response.json()
+
+    if(response.ok){
+      navigate(-1)
+    }
+  }
+
   if (!dish) {
     return (
       <div className={styles.noDishSelected}>
@@ -36,18 +47,18 @@ function DishDetails() {
         <div className={styles.buttonsContainer}>
         <button
                className={styles.crudButtonsButton}
-                onClick={() => navigate("/updateMenuForm")}
+                onClick={() => navigate("/UpdateMenuForm", { state: { dish } })}
           > 
           Update Dish
         </button>
-        <button className={styles.crudButtonsButton}>Delete Dish</button>
-        <button className={styles.crudButtonsButton}>Mark as out of stcok</button>
-        <button
+        <button className={styles.crudButtonsButton} onClick={handleDelete} >Delete Dish</button>
+        <button className={styles.crudButtonsButton}>Mark as out of stock</button>
+        {/* <button
             className={styles.addDishButton}
             onClick={() => navigate("/AddMenuForm")}
           >
             Add Dish
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

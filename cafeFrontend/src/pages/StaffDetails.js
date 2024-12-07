@@ -20,6 +20,16 @@ function DishDetails() {
     );
   }
 
+  const handleDelete = async () => {
+    const response = await fetch('http://localhost:5000/api/staff/delete/' + staff._id, {
+      method: 'DELETE'
+    })
+    const json = await response.json()
+    if(response.ok){
+      navigate(-1)
+    }
+  }
+
   return (
     <div className={styles.dishDetailsContainer}>
       <button className={styles.backButton} onClick={() => navigate(-1)}>
@@ -32,8 +42,8 @@ function DishDetails() {
         <p className={styles.staffCNIC}>Contact no.: {staff.contactNumber}</p>
         <p className={styles.staffExperience}>Email: {staff.email}</p>
         <div className={styles.buttonsContainer}>
-          <button className={styles.crudButtonsButton}>Update Info about Staff Member</button>
-          <button className={styles.crudButtonsButton}>Remove Staff Member</button>
+          <button className={styles.crudButtonsButton} onClick={() => navigate('/UpdateStaffForm', { state : {staff}})}>Update Info about Staff Member</button>
+          <button className={styles.crudButtonsButton} onClick={handleDelete} >Remove Staff Member</button>
         </div>
       </div>
     </div>

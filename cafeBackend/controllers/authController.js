@@ -1,5 +1,5 @@
 const Admin = require('../models/admin');
-const Staff = require('../models/staff');
+const Staff = require('../models/Staff');
 const Customer = require('../models/customer');
 const bcrypt = require('bcryptjs');
 const generateToken = require('../utils/generateToken');

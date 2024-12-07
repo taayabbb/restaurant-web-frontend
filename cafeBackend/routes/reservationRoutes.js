@@ -3,7 +3,8 @@ const {
   getReservations,
   confirmReservation,
   assignTableToReservation,
-  getOccupancy
+  getOccupancy,
+  countReservations
 } = require('../controllers/reservationController');
 
 const router = express.Router();
@@ -19,5 +20,7 @@ router.patch('/:id/assign-table', assignTableToReservation);
 
 // Get table occupancy
 router.get('/occupancy', getOccupancy);
+
+router.get('/count-reservations', countReservations);
 
 module.exports = router;

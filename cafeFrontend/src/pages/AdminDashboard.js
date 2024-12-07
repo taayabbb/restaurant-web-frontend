@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/AdminDashboard.css";
 import { Bar, Line, Pie } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import { color } from "chart.js/helpers";
 Chart.register(...registerables);
 const Dashboard = () => {
-  // Dummy Data for Metrics
-  const dailyOrders = 100;
-  const reservations = 50;
   const dailySales = 450;
   // Data for Bar Chart (Daily Orders)
   const barData = {
@@ -88,6 +85,30 @@ const Dashboard = () => {
       },
   };
 
+
+  const [ordersCount , setOrdersCount] = useState();
+  const [reservationCount , setReservationCount] = useState();
+  useEffect( () => {
+    const fetchOrdersCount = async () => {
+      const response = await fetch('http://localhost:5000/api/order/order-count');
+      const json = await response.json()
+      if(response.ok){
+        setOrdersCount(json.todayOrders)
+      }
+    }
+    fetchOrdersCount()
+  }, [])
+  useEffect( () => {
+    const fetchReservationCount = async () => {
+      const response = await fetch('http://localhost:5000/api/reservation/count-reservations');
+      const json = await response.json()
+      if(response.ok){
+        setReservationCount(json.todayReservations)
+      }
+    }
+    fetchReservationCount()
+  }, [])
+  
   return (
     <div className="dashboard">
       <header className="dashboard-header">
@@ -97,17 +118,17 @@ const Dashboard = () => {
 
       <section className="metrics">
         <div className="metric-card">
-          <h2>Daily Orders</h2>
-          <p>{dailyOrders}</p>
+          <h2>All time Orders</h2>
+          <p>{ordersCount}</p>
           <p className="description">
-            This represents the number of orders placed today. Monitoring daily orders helps us understand customer demand and adjust staffing levels accordingly.
+            This represents the number of orders placed all time. Monitoring orders helps us understand customer demand and adjust staffing levels accordingly.
           </p>
         </div>
         <div className="metric-card">
           <h2>Reservations</h2>
-          <p>{reservations}</p>
+          <p>{reservationCount}</p>
           <p className="description">
-            This indicates the number of reservations made today. Tracking reservations helps manage seating arrangements and predict customer traffic.
+            This indicates the number of reservations made all time. Tracking reservations helps manage seating arrangements and predict customer traffic.
           </p>
         </div>
         <div className="metric-card">

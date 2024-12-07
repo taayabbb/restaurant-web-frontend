@@ -27,10 +27,10 @@ const addMenuItem = async (req, res) => {
 // Update Menu Item
 const updateMenuItem = async (req, res) => {
   const { id } = req.params;
-  const { name, category, price, description, isSpecial, status } = req.body;
+  const { name, category, price, description, isSpecial, imgPath } = req.body;
 
   try {
-    const menuItem = await Menu.findByIdAndUpdate(id, { name, category, price, description, isSpecial, status }, { new: true });
+    const menuItem = await Menu.findByIdAndUpdate(id, { name, category, price, description, isSpecial, imgPath }, { new: true });
     res.json({ message: 'Menu item updated successfully', menuItem });
   } catch (error) {
     res.status(500).json({ message: 'Error updating menu item', error });

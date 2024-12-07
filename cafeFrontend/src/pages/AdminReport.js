@@ -33,6 +33,7 @@ const AdminReport = () => {
       const response = await fetch('http://localhost:5000/api/order/menu-items-by-sales')
       const json = await response.json();
       if(response.ok){
+        console.log(json)
         setMostSoldItems(json)
       }
     }

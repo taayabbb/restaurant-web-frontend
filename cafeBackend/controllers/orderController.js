@@ -1,6 +1,19 @@
 const Order = require('../models/Order');
 const MenuItem = require('../models/MenuItem')
 
+// Count orders
+const countOrders = async (req, res) => {
+  try {
+    // Count orders
+    const todayOrdersCount = await Order.countDocuments({
+      
+    });
+    res.json({ todayOrders: todayOrdersCount });
+  } catch (error) {
+    res.status(500).json({ message: 'Error counting today\'s orders', error });
+  }
+};
+
 // Get all orders
 const getOrders = async (req, res) => {
   try {
@@ -46,7 +59,6 @@ const generateReports = async (req, res) => {
     res.status(500).json({ message: 'Error generating reports', error });
   }
 };
-
 // Get all menu items sorted by quantity sold
 const getMenuItemsBySales = async (req, res) => {
   try {
@@ -56,10 +68,10 @@ const getMenuItemsBySales = async (req, res) => {
       {
         $group: {
           _id: '$items.menuItem', // Group by menuItem ID
-          totalQuantity: { $sum: '$items.quantity' } // Sum the quantities sold
-        }
+          totalQuantity: { $sum: '$items.quantity' }, // Sum the quantities sold
+        },
       },
-      { $sort: { totalQuantity: -1 } } // Sort by total quantity sold in descending order
+      { $sort: { totalQuantity: -1 } }, // Sort by total quantity sold in descending order
     ]);
 
     if (soldItems.length === 0) {
@@ -70,18 +82,59 @@ const getMenuItemsBySales = async (req, res) => {
     const menuItems = await Promise.all(
       soldItems.map(async (item) => {
         const menuItem = await MenuItem.findById(item._id);
+        if (!menuItem) {
+          return null; // Skip if the menu item doesn't exist
+        }
         return {
           menuItem,
-          totalSold: item.totalQuantity
+          totalSold: item.totalQuantity,
         };
       })
     );
 
-    res.json(menuItems);
+    // Filter out null values (missing menu items)
+    const filteredMenuItems = menuItems.filter((item) => item !== null);
+
+    res.json(filteredMenuItems);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching menu items by sales', error });
   }
 };
+
+// const getMenuItemsBySales = async (req, res) => {
+//   try {
+//     // Aggregate order data to calculate the total sales for each menu item
+//     const soldItems = await Order.aggregate([
+//       { $unwind: '$items' }, // Deconstruct the items array
+//       {
+//         $group: {
+//           _id: '$items.menuItem', // Group by menuItem ID
+//           totalQuantity: { $sum: '$items.quantity' } // Sum the quantities sold
+//         }
+//       },
+//       { $sort: { totalQuantity: -1 } } // Sort by total quantity sold in descending order
+//     ]);
+
+//     if (soldItems.length === 0) {
+//       return res.status(404).json({ message: 'No sales data found.' });
+//     }
+
+//     // Populate menu item details for all sold items
+//     const menuItems = await Promise.all(
+//       soldItems.map(async (item) => {
+//         const menuItem = await MenuItem.findById(item._id);
+//         return {
+//           menuItem,
+//           totalSold: item.totalQuantity
+//         };
+//       })
+//     );
+
+//     res.json(menuItems);
+//   } catch (error) {
+//     res.status(500).json({ message: 'Error fetching menu items by sales', error });
+//   }
+// };
 
 // Calculate total profits
 const calculateTotalProfits = async (req, res) => {
@@ -159,4 +212,5 @@ module.exports = {
   getMenuItemsBySales, 
   calculateTotalProfits, 
   calculateTotalRevenues,
-  getOrderHistory };
+  getOrderHistory,
+  countOrders };

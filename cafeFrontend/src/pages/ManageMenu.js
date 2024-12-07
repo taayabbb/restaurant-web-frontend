@@ -68,7 +68,18 @@ function ManageMenu() {
           </div>
         ))}
       </div>
-      <button className={styles.addButton}>Add a new dish</button>
+      <button
+            className={styles.addButton}
+            onClick={() => navigate("/AddMenuForm")}
+          >
+            Add Dish
+          </button>
+          <button
+            className={styles.addButton}
+            onClick={() => navigate("/updateMenuForm")}
+          >
+            Update Dish
+          </button>
     </div>
   );
 

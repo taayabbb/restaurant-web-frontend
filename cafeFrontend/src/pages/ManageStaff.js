@@ -59,9 +59,22 @@ function ManageStaff() {
               View Details
             </button>
           </div>
+          
         ))}
       </div>
-      <button className={styles.addButton} >Add a new staff member</button>
+
+      <button
+            className={styles.addButton}
+            onClick={() => navigate("/AddStaffForm")}
+          >
+            Add Staff Member
+          </button>
+          <button
+            className={styles.addButton}
+            onClick={() => navigate("/UpdateStaffForm")}
+          >
+          Update Staff member
+          </button>
     </div>
   );
 }

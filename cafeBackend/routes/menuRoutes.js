@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', getMenuItems );
 router.post('/add', addMenuItem);
-router.put('/update/:id', protect, updateMenuItem);
-router.delete('/delete/:id', protect, deleteMenuItem);
+router.put('/update/:id', updateMenuItem);
+router.delete('/delete/:id', deleteMenuItem);
 
 module.exports = router;

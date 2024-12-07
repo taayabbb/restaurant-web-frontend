@@ -4,15 +4,11 @@
 //3-revenues 
 //4-reviews of suctomers
 //thats all 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/AdminReport.css';
 
 const AdminReport = () => {
   const [data] = useState({
-    mostSoldItems: [],
-    profits: 0,
-    revenues: 0,
-    orderHistory: [],
     salesLastTenYears: [
         { year: 2014, sales: 120000 },
         { year: 2015, sales: 150000 },
@@ -26,7 +22,54 @@ const AdminReport = () => {
         { year: 2023, sales: 450000 },
       ],
   });
+  const [mostSoldItems, setMostSoldItems] = useState([]);
+  const [profits, setProfits] = useState(null);
+  const [revenue, setRevenue] = useState(null);
+  const [ordersHistory, setOrderHistory] = useState([]);
   const [activeSection, setActiveSection] = useState('mostSoldItems');
+
+  useEffect(() => {
+    const fetchMostSoldItem = async () => {
+      const response = await fetch('http://localhost:5000/api/order/menu-items-by-sales')
+      const json = await response.json();
+      if(response.ok){
+        setMostSoldItems(json)
+      }
+    }
+    fetchMostSoldItem()
+  },[])
+
+  useEffect(() => {
+    const fetchProfits = async () => {
+      const response = await fetch('http://localhost:5000/api/order/total-profits')
+      const json = await response.json()
+      if(response.ok){
+        setProfits(json.totalProfits)
+      }
+    }
+    fetchProfits()
+  }, [])
+  useEffect(() => {
+    const fetchProfits = async () => {
+      const response = await fetch('http://localhost:5000/api/order/total-revenues')
+      const json = await response.json()
+      if(response.ok){
+        setRevenue(json.totalRevenue)
+      }
+    }
+    fetchProfits()
+  }, [])
+  useEffect(() => {
+    const fetchProfits = async () => {
+      const response = await fetch('http://localhost:5000/api/order/orders-history')
+      const json = await response.json()
+      if(response.ok){
+        setOrderHistory(json.ordersHistory)
+      }
+    }
+    fetchProfits()
+  }, [])
+
   const renderSection = () => {
     switch (activeSection) {
       case 'mostSoldItems':
@@ -34,9 +77,9 @@ const AdminReport = () => {
           <div>
             <h2>Most Sold Items</h2>
             <ul>
-              {data.mostSoldItems.map((item, index) => (
-                <li key={index}>
-                  {item.name} - {item.quantity} sold
+              { mostSoldItems && mostSoldItems.map((item) => (
+                <li key={item._id}>
+                  {item.menuItem.name} - {item.totalSold} sold
                 </li>
               ))}
             </ul>
@@ -46,14 +89,14 @@ const AdminReport = () => {
         return (
           <div>
             <h2>Profits</h2>
-            <p>Total Profits: ${data.profits}</p>
+            <p>Total Profits: ${profits}</p>
           </div>
         );
       case 'revenues':
         return (
           <div>
             <h2>Revenues</h2>
-            <p>Total Revenues: ${data.revenues}</p>
+            <p>Total Revenues: ${revenue}</p>
           </div>
         );
       case 'orderHistory':
@@ -61,9 +104,9 @@ const AdminReport = () => {
           <div>
             <h2>Order History</h2>
             <ul>
-              {data.orderHistory.map((order, index) => (
-                <li key={index}>
-                  {order.date} - {order.itemName} - ${order.totalPrice}
+              {ordersHistory && ordersHistory.map((order) => (
+                <li key={order._id}>
+                  {Date(order.createdAt)} - {order.customer.name} - ${order.totalAmount}
                 </li>
               ))}
             </ul>

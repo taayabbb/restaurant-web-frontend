@@ -16,13 +16,15 @@ import AddMenuForm from './components/addMenuForm';
 import UpdateMenuForm from './components/updateMenuForm'; // Fixed import
 import AddStaffForm from './components/addStaffForm';
 import UpdateStaffForm from './components/updateStaffForm'; // Fixed import
-
+import ReservationManagement from './pages/ReservationManagementPage';
+import AddReservationForm from './components/AddReservationForm';
+import OrderQueueMgt from './pages/OrderQueueMgt';
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Dashboard />} /> {/* Dashboard route */}
+          {/* <Route path="/" element={<Dashboard />} /> Dashboard route */}
           <Route path="/login" element={<Login />} /> {/* Login page route */}
           <Route path="/signup" element={<SignUp />} />
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
@@ -36,6 +38,9 @@ function App() {
           <Route path="/UpdateMenuForm" element={<UpdateMenuForm />} /> {/* Updated route */}
           <Route path="/AddStaffForm" element={<AddStaffForm />} />
           <Route path="/UpdateStaffForm" element={<UpdateStaffForm />} /> {/* Updated route */}
+          <Route path='/sui' element={<ReservationManagement />} />
+          <Route path='/add-reservation' element={<AddReservationForm />} />
+          <Route path='/' element={<OrderQueueMgt />} />
         </Routes>
       </div>
     </Router>

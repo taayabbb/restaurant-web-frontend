@@ -10,6 +10,7 @@ const staffRoutes = require('./routes/staffRoutes')
 const reservationRoutes = require('./routes/reservationRoutes')
 const inventoryRoutes = require('./routes/inventoryRoutes')
 const specialDishRoutes = require('./routes/specialDishRoutes')
+const tableRoutes = require('./routes/tableRoutes')
 
 // Initialize environment variables
 dotenv.config();
@@ -35,6 +36,7 @@ app.use('/api/staff', staffRoutes)
 app.use('/api/reservation',reservationRoutes)
 app.use('/api/inventory',inventoryRoutes)
 app.use('/api/special-dish',specialDishRoutes)
+app.use('/api/table',tableRoutes)
 
 // app.use('/api/staff', require('./routes/staff'));
 // app.use('/api/menu', require('./routes/menu'));

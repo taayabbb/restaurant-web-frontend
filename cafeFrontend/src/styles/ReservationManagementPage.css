@@ -1,0 +1,119 @@
+/* General Styling */
+.reservation-management {
+    display: flex;
+    height: 100vh;
+    background-image: url("https://i.imghippo.com/files/IxnQ9009CII.jpg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    color: white;
+  }
+  
+
+  .select{
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #000000;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 350px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(11.1px);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .sidebar-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-button {
+    background: #744000;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .dropdown button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Content */
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background: #744000;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Table List */
+  .table-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .table-item{
+    background: #744000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    color: #ffffff;
+  }
+  

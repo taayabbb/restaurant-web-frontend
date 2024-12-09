@@ -16,9 +16,13 @@ import AddMenuForm from './components/addMenuForm';
 import UpdateMenuForm from './components/updateMenuForm'; // Fixed import
 import AddStaffForm from './components/addStaffForm';
 import UpdateStaffForm from './components/updateStaffForm'; // Fixed import
-import ReservationManagement from './pages/ReservationManagementPage';
-import AddReservationForm from './components/AddReservationForm';
+import TableMgt from './pages/TableMgt';
 import OrderQueueMgt from './pages/OrderQueueMgt';
+import ReservationPage from './pages/ReservationPage';
+import BillingPage from './pages/BillingPage';
+import SpecialDishMgt from './pages/SpecialDishMgt';
+import InventoryMgt from './pages/InventoryMgt';
+import UpdateStock from './pages/UpdateStock';
 function App() {
   return (
     <Router>
@@ -38,9 +42,14 @@ function App() {
           <Route path="/UpdateMenuForm" element={<UpdateMenuForm />} /> {/* Updated route */}
           <Route path="/AddStaffForm" element={<AddStaffForm />} />
           <Route path="/UpdateStaffForm" element={<UpdateStaffForm />} /> {/* Updated route */}
-          <Route path='/sui' element={<ReservationManagement />} />
-          <Route path='/add-reservation' element={<AddReservationForm />} />
-          <Route path='/' element={<OrderQueueMgt />} />
+          
+          <Route path='/table-management' element={<TableMgt />} />
+          <Route path='/order-queue' element={<OrderQueueMgt />} />
+          <Route path='/reservation-page' element={<ReservationPage />} />
+          <Route path='/billing' element={<BillingPage />} />
+          <Route path='/special-dish' element={<SpecialDishMgt />} />
+          <Route path='/inventory-management' element={<InventoryMgt />} />
+          <Route path='/update-stock' element={<UpdateStock />} />
         </Routes>
       </div>
     </Router>

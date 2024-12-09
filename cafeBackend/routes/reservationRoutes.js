@@ -1,10 +1,10 @@
 const express = require('express');
 const {
   getReservations,
-  confirmReservation,
   assignTableToReservation,
   getOccupancy,
-  countReservations
+  countReservations,
+  completeReservation
 } = require('../controllers/reservationController');
 
 const router = express.Router();
@@ -12,8 +12,8 @@ const router = express.Router();
 // Get all reservations
 router.get('/', getReservations);
 
-// Confirm a reservation
-router.patch('/:id/confirm', confirmReservation);
+// Complete a reservation
+router.patch('/:id/confirm', completeReservation);
 
 // Assign a table to a reservation
 router.patch('/:id/assign-table', assignTableToReservation);

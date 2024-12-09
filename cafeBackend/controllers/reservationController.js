@@ -3,7 +3,7 @@ const Reservation = require('../models/Reservation');
 // Get all reservations
 const getReservations = async (req, res) => {
   try {
-    const reservations = await Reservation.find().populate('customer');
+    const reservations = await Reservation.find().populate('order').populate('order.items.meuItem').populate('customer');
     res.json(reservations);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -11,13 +11,13 @@ const getReservations = async (req, res) => {
 };
 
 // Confirm a reservation
-const confirmReservation = async (req, res) => {
+const completeReservation = async (req, res) => {
   const { id } = req.params;
 
   try {
     const reservation = await Reservation.findByIdAndUpdate(
       id,
-      { status: 'reserved' },
+      { status: 'completed' },
       { new: true }
     ).populate('customer');
 
@@ -74,7 +74,7 @@ const countReservations = async (req, res) => {
 
 module.exports = {
   getReservations,
-  confirmReservation,
+  completeReservation,
   assignTableToReservation,
   getOccupancy,
   countReservations

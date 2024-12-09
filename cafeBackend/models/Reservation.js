@@ -6,6 +6,7 @@ const reservationSchema = new mongoose.Schema({
   date: { type: Date, required: true },
   time: { type: String, required: true },
   status: { type: String, enum: ['reserved', 'canceled', 'completed'], default: 'reserved' },
+  order: {type:mongoose.Schema.Types.ObjectId, ref: 'Order'},
   createdAt: { type: Date, default: Date.now }
 });
 

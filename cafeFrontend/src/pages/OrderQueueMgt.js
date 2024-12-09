@@ -85,7 +85,7 @@ const OrderQueueMgt = () => {
         </div>
         <h2>{activeCategory} Orders</h2>
             <ul className="table-list">
-            {activeCategory && orders.filter((order) => order.status === activeCategory).map((order) => (
+            {activeCategory && orders.filter((order) => order.status === activeCategory)((order) => (
             <li key={order._id} className="table-item">
                 <p>Customer:{order.customer.name}</p>
                 <p>Amount: {order.totalAmount}</p>

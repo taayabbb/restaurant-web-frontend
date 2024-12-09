@@ -37,35 +37,29 @@ const loginUser = async (req, res) => {
   }
 };
 // Register Admin Function
-const registerAdmin = async (req, res) => {
+const register = async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
-    // Check if an admin already exists
-    const existingAdmin = await Admin.findOne({ role: 'superadmin' });
-    if (existingAdmin) {
-      return res.status(400).json({ message: 'An admin already exists. Registration is not allowed.' });
-    }
-
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create admin
-    const admin = new Admin({
+    const staff = new Staff({
       name,
       email,
       password: hashedPassword,
-      role: 'superadmin'
+      role: 'waiter'
     });
 
     // Save admin to database
-    await admin.save();
+    await staff.save();
 
-    res.status(201).json({ message: 'Admin registered successfully', admin: { id: admin._id, name: admin.name, email: admin.email } });
+    res.status(201).json({ id: staff._id, name: staff.name, email: staff.email, token: generateToken(staff._id, 'staff') });
   } catch (error) {
     res.status(500).json({ message: 'Server error', error });
   }
 };
 
 
-module.exports = { loginUser, registerAdmin };
+module.exports = { loginUser, register };

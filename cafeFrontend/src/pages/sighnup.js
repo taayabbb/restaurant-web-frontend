@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Login.css'; // Optional: Add CSS for your signup page
 import logo from "../images/loginreal.jpg";
 import { useNavigate } from 'react-router-dom';
+import { useSignup } from '../hooks/useSignup';
 
 function SignUp() {
     const navigate = useNavigate(); // Using the navigation hook
-
+    const [email,setEmail] = useState('')
+    const [name,setUsername] = useState('')
+    const [password,setPassword] = useState('')
+    const [confirmPassword,setConfirmPassword] = useState('')
+    const { signup , error, isLoading } = useSignup()
     const handleLoginRedirect = () => {
         navigate('/login'); // Redirect to login page
     };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        await signup(name,email,password)
+    }
 
     return (
         <div className="login-container">
@@ -18,25 +28,26 @@ function SignUp() {
                 <h2 className="login-title">-----LA-MONTANA-----</h2>
                 <h3 className="login-subtitle">Sign up to enjoy our amazing offers!</h3>
                 <h3 className="login-word">--------SIGN UP--------</h3>
-                <form className="login-form">
+                <form className="login-form" onSubmit={handleSubmit}>
                     {/* Username Input */}
                     <div className="input-group">
-                        <input type="text" id="username" name="username" placeholder="Enter your username" />
+                        <input type="text" value={name} onChange={(e)=>setUsername(e.target.value)} placeholder="Enter your username" />
                     </div>
                     {/* Email Input */}
                     <div className="input-group">
-                        <input type="email" id="email" name="email" placeholder="Enter your email address" />
+                        <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Enter your email address" />
                     </div>
                     {/* Password Input */}
                     <div className="input-group">
-                        <input type="password" id="password" name="password" placeholder="Enter your password" />
+                        <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Enter your password" />
                     </div>
                     {/* Confirm Password Input */}
                     <div className="input-group">
-                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" />
+                        <input type="password" value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)} placeholder="Confirm your password" />
                     </div>
                     {/* Sign Up Button */}
-                    <button type="button" className="login-button">Sign Up</button>
+                    <button type="button" disabled={isLoading} className="login-button">Sign Up</button>
+                    {error && <div>{error}</div>}
                 </form>
                 {/* Login Redirect Link */}
                 <div className="signup-container">
